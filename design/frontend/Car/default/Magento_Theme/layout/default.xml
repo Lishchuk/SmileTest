@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo.png</argument>
+                <argument name="logo_alt" xsi:type="string">Car</argument>
+                <argument name="logo_img_width" xsi:type="number">234</argument>
+                <argument name="logo_img_height" xsi:type="number">112</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceContainer name="header.panel">
+            <block class="Magento\Cms\Block\Block" name="header-top-nav" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">header-top-nav</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Template" name="header.location" after="store_language" template="Magento_Theme::header-
+location.phtml" />
+
+        </referenceContainer>
+
+        <referenceContainer name="header-wrapper">
+            <block class="Magento\Cms\Block\Block" name="header-contact-info" after="top.search">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">header-contact-info</argument>
+                </arguments>
+            </block>
+
+            <container name="header.content.nav" label="Header Content Nav" as="header.content.nav" after="header.contacts" htmlTag="div" htmlClass="header-navigations">
+                <container name="header.content.nav.wrap" label="Header Content Nav Wrap" as="header.content.nav.wrap"  before="-" htmlTag="ul" htmlClass="navigations-wrap" />
+            </container>
+        </referenceContainer>
+
+
+        <referenceBlock name="navigation.sections">
+            <block class="Magento\Framework\View\Element\Template" name="stores.menus" group="navigation-sections" template="Magento_Theme::html/container.phtml">
+                <arguments>
+                    <argument name="title" translate="true" xsi:type="string">Menus</argument>
+                </arguments>
+                <block class="Magento\Cms\Block\Block" name="header-top-navs" before="-">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">header-top-nav</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceBlock>
+
+        <referenceContainer name="footer-container" >
+            <referenceContainer name="footer" remove="true" />
+
+            <container name="footer.nav" label="Footer Nav" as="footer.nav" htmlTag="div" htmlClass="footer-wrap">
+                <block class="Magento\Framework\View\Element\Template" name="footer.navigation.menu" before="-" template="Magento_Theme::footer-custom.phtml" />
+                <container name="footer.copyright" label="Footer copyright" as="footer.copyright" htmlTag="div" htmlClass="footer-copyright">
+                    <block class="Magento\Theme\Block\Html\Footer" name="copyright" template="Magento_Theme::html/copyright.phtml"/>
+                    <block class="Magento\Framework\View\Element\Template" name="footer.dev" after="copyright" template="Magento_Theme::footer-dev.phtml" />
+                </container>
+            </container>
+                <block class="Magento\Framework\View\Element\Template" name="footer.contacts" after="footer.navigation.menu" template="Magento_Theme::footer-contacts.phtml"/>
+                <container name="footer.copyright.second" label="Footer copyright second" as="footer.copyright.second" htmlTag="div" htmlClass="footer-copyright-second">
+                    <block class="Magento\Theme\Block\Html\Footer" name="copyright.second" template="Magento_Theme::html/copyright.phtml"/>
+                    <block class="Magento\Framework\View\Element\Template" name="footer.dev.second" after="copyright" template="Magento_Theme::footer-dev.phtml" />
+                </container>
+        </referenceContainer>
+
+
+        <move element="minicart" destination="header.content.nav" after="-"/>
+        <move element="my-account-link" destination="header.content.nav.wrap" befote="-"/>
+        <move element="catalog.compare.link" destination="header.content.nav.wrap" after="wish-list-link"/>
+        <move element="wish-list-link" destination="header.content.nav.wrap" after="my-account-link"/>
+
+<!--        <move element="copyright" destination="footer.navigation.menu" before="-"/>-->
+
+    </body>
+</page>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <css src="css/source/icomoon.css" />
+<!--        <css src="css/source/select2.css" />-->
+        <css src="css/source/slick.css" />
+
+        <!-- Google Fonts -->
+<!--     <link rel="stylesheet" type="text/css" src="https://fonts.googleapis.com/css?family=Open Sans Condensed:300" src_type="url" /> -->
+    </head>
+
+</page>

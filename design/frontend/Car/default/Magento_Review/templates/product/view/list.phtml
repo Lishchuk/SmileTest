@@ -1,0 +1,122 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var Magento\Review\Block\Product\View\ListView $block */
+
+$_items = $block->getReviewsCollection()->getItems();
+$format = $block->getDateFormat() ?: \IntlDateFormatter::SHORT;
+?>
+<?php if (count($_items)):?>
+  <div class="block review-list" id="customer-reviews" >
+    <div class="block-content">
+
+      <ol class="items review-items">
+          <?php foreach ($_items as $_review):?>
+            <li class="item review-item" itemscope itemprop="review" itemtype="http://schema.org/Review">
+
+              <div class="review-item-wrap">
+                <div class="review-details">
+                  <p class="review-author">
+                    <span class="review-details-label"><?= $block->escapeHtml(__('Review by')) ?></span>
+                    <strong class="review-details-value" itemprop="author"><?= $block->escapeHtml($_review->getNickname()) ?></strong>
+                  </p>
+                  <p class="review-date">
+                    <span class="review-details-label"><?= $block->escapeHtml(__('Posted on')) ?></span>
+                    <time class="review-details-value" itemprop="datePublished" datetime="<?= $block->escapeHtmlAttr($block->formatDate($_review->getCreatedAt(), $format)) ?>"><?= $block->escapeHtml($block->formatDate($_review->getCreatedAt(), $format)) ?></time>
+                  </p>
+                </div>
+
+                <div class="review-content" itemprop="description">
+                    <?= nl2br($block->escapeHtml($_review->getDetail())) ?>
+                </div>
+
+                <div class="review-advantages">
+                  <p><span><?php echo __('Advantages') ?>:</span>хорошая батарея, и вообще неплохой смартфон</p>
+                </div>
+
+                <div class="review-disadvantages">
+                  <p><span><?php echo __('Disadvantages') ?>:</span> не обнаружены </p>
+                </div>
+
+                <div class="review-qustion">
+                  <div class="review-qustion-answer">
+                    <a href="#">1 <?= __('answer') ?></a>
+                    <a href="#"><?= __('Reply') ?></a>
+                  </div>
+
+                  <div class="review-qustion-review">
+                    <p><?= __('Did you find this review helpful') ?>:</p>
+                    <div class="like"><span class="icon-like"></span>14</div>
+                    <div class="dislike"><span class="icon-dislike"></span>3</div>
+                  </div>
+                </div>
+              </div>
+
+                <?php if (count($_review->getRatingVotes())): ?>
+                  <div class="review-ratings">
+                      <?php foreach ($_review->getRatingVotes() as $_vote): ?>
+                        <div class="rating-summary item" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                          <span class="label rating-label"><span><?= $block->escapeHtml($_vote->getRatingCode()) ?></span></span>
+                          <div class="rating-result" title="<?= $block->escapeHtmlAttr($_vote->getPercent()) ?>%">
+                            <meta itemprop="worstRating" content = "1"/>
+                            <meta itemprop="bestRating" content = "100"/>
+                            <span style="width:<?= $block->escapeHtmlAttr($_vote->getPercent()) ?>%">
+                                <span itemprop="ratingValue"><?= $block->escapeHtml($_vote->getPercent()) ?>%</span>
+                            </span>
+                          </div>
+                        </div>
+                      <?php endforeach; ?>
+                  </div>
+                <?php endif; ?>
+            </li>
+          <?php endforeach; ?>
+      </ol>
+      <a class="btn-all" href="#"><?= __('Show all reviews') ?></a>
+      <div class="toolbar review-toolbar">
+          <?= $block->getChildHtml('toolbar') ?>
+      </div>
+    </div>
+  </div>
+<?php endif;?>
+  <script>
+      require(
+          [
+              'jquery'
+          ],
+          function($) {
+              var maxReviewQty = 3,
+                  reviewItem = $('.review-item'),
+                  isShow = false;
+
+              if(reviewItem.length > maxReviewQty) {
+                  reviewItem.each(function (i, elem) {
+                      if (i >= maxReviewQty) {
+                          $(elem).addClass('more-than-agreed').hide();
+                          $('.toolbar.review-toolbar').hide();
+                      }
+                  });
+                  isShow = false;
+              } else {
+                  $('.btn-all').hide();
+              }
+
+              $('.btn-reviews, .btn-all').on('click', function (e) {
+                  e.preventDefault();
+                  if(isShow) {
+                      $('.more-than-agreed').hide();
+                      $('.toolbar.review-toolbar').hide();
+                      isShow = false;
+                  } else {
+                      $('.more-than-agreed').show();
+                      $('.toolbar.review-toolbar').show();
+                      isShow = true;
+                  }
+              });
+          }
+      );
+  </script>

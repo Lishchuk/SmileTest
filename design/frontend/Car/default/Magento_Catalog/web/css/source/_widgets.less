@@ -1,0 +1,45 @@
+& when (@media-common = true) {
+  .page {
+    &-layout-1column {
+      .block {
+        &.widget {
+          .products {
+            &-grid {
+              .product {
+                &-item {
+                  height: 440px;
+                  margin: 0;
+                  padding: 20px;
+                  border: 3px solid #eff0f3;
+                  &:not(:first-child) {
+                    margin-left: -3px;
+                  }
+
+                  &-photo {
+                    display: block;
+                    margin-bottom: 20px;
+                  }
+
+                  &:last-of-type {
+                    border-right: 3px solid #eff0f3;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .widget {
+    .block {
+      &-title {
+        > strong {
+          font-size: 28px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

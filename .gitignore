@@ -1,0 +1,13 @@
+code/Smile
+code/Car
+design/adminhtml
+design/frontend/Magento
+design/frontend/Cars
+design/frontend/Smile
+design/frontend/Test
+etc/
+i18n/Cars
+.htaccess
+autoload.php
+bootstrap.php
+functions.php

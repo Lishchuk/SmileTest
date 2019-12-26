@@ -1,0 +1,86 @@
+& when (@media-common = true) {
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: @font-family-name__base;
+  }
+
+  h1 {
+    font-size: 34px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    > li {
+      margin: 0;
+    }
+  }
+
+  .breadcrumbs {
+    .lib-breadcrumbs(
+      @_breadcrumbs-font-size: 13px,
+      @_breadcrumbs-link-color: #999999,
+      @_breadcrumbs-link-color-visited: #999999
+    );
+  }
+
+  .lib-font-face(
+    @family-name,
+    @font-path,
+    @font-weight: normal,
+    @font-style: normal
+  ) {
+    @font-face {
+      font-family: @family-name;
+      src: url('@{font-path}.woff') format('woff'),
+      url('@{font-path}.eot') format('embedded-opentype'),
+      url('@{font-path}.ttf') format('truetype');
+      font-weight: @font-weight;
+      font-style: @font-style;
+    }
+  }
+
+  .lib-font-face(
+    @family-name: @font-family-name__base,
+    @font-path: '@{baseDir}fonts/Proxima/ProximaNova-Regular',
+    @font-weight: 400,
+    @font-style: normal
+  );
+
+  .lib-font-face(
+    @family-name: @font-family-name__base,
+    @font-path: '@{baseDir}fonts/Proxima/ProximaNova-Bold',
+    @font-weight: 700,
+    @font-style: normal
+  );
+
+  .lib-font-face(
+    @family-name: @font-family-name__base,
+    @font-path: '@{baseDir}fonts/Proxima/ProximaNova-Black',
+    @font-weight: 900,
+    @font-style: normal
+  );
+
+  .lib-font-face(
+    @family-name: @font-family-name__base,
+    @font-path: '@{baseDir}fonts/Proxima/ProximaNova-Light',
+    @font-weight: 300,
+    @font-style: normal
+  );
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  h1 {
+    margin: 0;
+    font-size: 34px;
+  }
+}

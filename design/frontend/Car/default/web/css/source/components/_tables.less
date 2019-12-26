@@ -1,0 +1,132 @@
+& when (@media-common = true) {
+	.table-wrapper {
+		.table{
+			&:not(.cart){
+				&:not(.totals){
+					&:not(.table-comparison) {
+						> tbody {
+							> tr {
+								th[data-th],
+								td[data-th]{
+									&:before{
+										display: none;
+									}
+								}
+
+								td {
+									display: inline-block;
+								}
+							}
+						}
+
+						&.additional-attributes {
+							tbody {
+								th {
+									display: inline-block;
+									padding: 10px;
+								}
+
+								td {
+									&:last-child {
+										padding: 0;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	.product {
+		&.info {
+			&.detailed {
+				.additional {
+					&-attributes {
+						width: 100%;
+						margin-bottom: 10px;
+						caption {
+							display: block;
+							width: 100%;
+							text-align: left;
+							font-size: 20px;
+							height: auto;
+							font-weight: 700;
+							margin: 0 0 20px 0;
+							overflow: visible;
+							padding: 0;
+							position: static;
+						}
+						> tbody {
+							> tr {
+								th {
+									width: 49%;
+									font-size: 13px;
+									font-weight: 400;
+									vertical-align: middle;
+								}
+
+								td {
+									width: 49%;
+									font-size: 13px;
+									font-weight: 400;
+									vertical-align: middle;
+								}
+
+								&:nth-child(odd){
+									background: #eff0f3;
+								}
+							}
+						}
+					}
+				}
+
+				.table-hide {
+					position: relative;
+					padding-bottom: 3px;
+					margin-left: 15px;
+					color: #333;
+					&:hover {
+						border-bottom: 1px solid #c1c1c1;
+						text-decoration: none;
+					}
+					&:before {
+						content: '';
+						position: absolute;
+						left: -13px;
+						top: 4px;
+						height: 6px;
+						width: 6px;
+						border-width: 0 2px 2px 0;
+						border-color: #fb3d4f;
+						border-style: solid;
+						transform: rotate(45deg);
+					}
+				}
+			}
+		}
+	}
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+	.table-wrapper {
+		.table{
+			&:not(.cart){
+				&:not(.totals){
+					&:not(.table-comparison) {
+						&.additional-attributes {
+							tbody {
+								th {
+									display: inline-block;
+									padding: 15px 20px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

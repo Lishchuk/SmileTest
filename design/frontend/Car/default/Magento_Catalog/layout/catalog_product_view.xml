@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <referenceContainer name="content">
+            <referenceContainer name="product.info.main">
+                <container name="product.info.wrapper" label="Product info Wrapper" htmlTag="div" htmlClass="product-info-wrapper" after="product.info.price" />
+                <block class="Magento\Catalog\Block\Product\View\Attributes" name="product.attributes.info"  template="Magento_Catalog::product/view/attributes-info.phtml" />
+            </referenceContainer>
+
+            <block class="Magento\Cms\Block\Block" name="similar-products" after="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">similar-products</argument>
+                </arguments>
+            </block>
+
+            <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.description.content" after="product.info.details" as="description" template="Magento_Catalog::product/view/attribute.phtml" group="detailed_info">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getDescription</argument>
+                    <argument name="at_code" xsi:type="string">description</argument>
+                    <argument name="css_class" xsi:type="string">description</argument>
+                    <argument name="css_class" xsi:type="string">description</argument>
+                    <argument name="at_label" xsi:type="string">none</argument>
+                    <argument name="title" translate="true" xsi:type="string">Details</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Review\Block\Product\Review" template="Magento_Catalog::reviews-btn.phtml" name="reviews.btn" after="product.info.description.content" />
+        </referenceContainer>
+
+        <move element="product.info.sku" destination="page.main.title" />
+        <move element="product.info.upsell" destination="content" before="product.info.details"/>
+        <move element="product.price.final" destination="product.info.wrapper" before="-"/>
+        <move element="alert.urls" destination="product.info.wrapper" after="product.price.final" />
+        <move element="product.info" destination="product.info.wrapper" after="alert.urls"/>
+        <move element="product.info.overview" destination="product.info.wrapper" after="product.info"/>
+        <move element="product.attributes.info" destination="product.info.wrapper" after="product.info.overview"/>
+        <move element="product.info.extrahint" destination="product.info.wrapper"  after="product.attributes.info"/>
+        <move element="reviews.tab" destination="content" after="reviews.btn" />
+
+    </body>
+</page>
+

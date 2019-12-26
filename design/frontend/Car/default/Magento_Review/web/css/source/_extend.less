@@ -1,0 +1,361 @@
+& when (@media-common = true) {
+  .fieldset > .field:not(.choice) > .label {
+    font-weight: 400;
+    font-size: 15px;
+  }
+
+  .product {
+    &-reviews {
+      &-summary {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+        .reviews {
+          &-actions {
+            a {
+              font-size: 13px;
+              &:before {
+                font-size: 12px;
+                line-height: 12px;
+                color: #777;
+                content: '\e90c';
+                font-family: 'icomoon';
+                margin: 0 5px 0 0;
+                vertical-align: middle;
+                display: inline-block;
+                text-align: center;
+              }
+              &.add {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .reviews {
+    &-buttons {
+      margin-top: 60px;
+      margin-bottom: 30px;
+      &:after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+
+      .btn {
+        &-reviews:visited,
+        &-add-reviews:visited {
+          color: #333;
+        }
+
+        &-reviews {
+          margin-bottom: 10px;
+          line-height: 38px;
+          height: 38px;
+          width: 170px;
+          text-align: center;
+          font-size: 16px;
+          font-weight: 700;
+          display: inline-block;
+          border: 1px solid #fb2539;
+          color: #333333;
+          transition: all .3s linear;
+          &:hover {
+            text-decoration: none;
+            background: #fb2539;
+            color: #fff;
+          }
+        }
+
+        &-add-reviews {
+          line-height: 38px;
+          height: 38px;
+          display: inline-block;
+          font-size: 15px;
+          font-weight: 700;
+          width: 155px;
+          background: #ffdc2c;
+          text-align: center;
+          color: #333333;
+          transition: all .3s linear;
+          &:hover {
+            text-decoration: none;
+            background: #e5c83a;
+          }
+        }
+      }
+    }
+  }
+
+  .review {
+    &-list {
+      .btn-all {
+        position: relative;
+        padding-bottom: 3px;
+        margin-left: 15px;
+        color: #333;
+        &:hover {
+          text-decoration: none;
+          border-bottom: 1px solid #c1c1c1;
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          left: -13px;
+          top: 4px;
+          height: 6px;
+          width: 6px;
+          border-width: 0 2px 2px 0;
+          border-color: #fb3d4f;
+          border-style: solid;
+          transform: rotate(45deg);
+        }
+      }
+    }
+
+    &-items {
+      margin-bottom: 10px;
+      .item {
+        margin-bottom: -1px;
+        position: relative;
+      }
+    }
+
+    &-item {
+      padding: 10px;
+      border: 1px solid #ffdc2c;
+      &:last-child{
+        border-width: 1px;
+      }
+    }
+
+    &-ratings {
+      position: static;
+      float: left;
+      .rating {
+        &-label {
+          display: block;
+          font-size: 16px;
+          font-weight: 700;
+        }
+      }
+    }
+
+    &-details {
+      margin-bottom: 15px;
+      &-label {
+        display: none;
+      }
+    }
+
+    &-author {
+      display: inline-block;
+      margin: 0 25px 0 0;
+      font-size: 16px;
+    }
+
+    &-date {
+      display: inline-block;
+      font-size: 13px;
+      color: #a9a9a9;
+    }
+
+    &-content {
+      font-size: 13px;
+      line-height: 20px;
+      margin-bottom: 15px;
+    }
+
+    &-advantages {
+      margin-bottom: 15px;
+      p {
+        font-size: 13px;
+        color: #333;
+      }
+
+      span {
+        font-weight: 700;
+        color: #57ae85;
+        margin-right: 10px;
+      }
+    }
+
+    &-disadvantages {
+      margin-bottom: 15px;
+      p {
+        font-size: 13px;
+        color: #333;
+      }
+
+      span {
+        font-weight: 700;
+        color: #f8727e;
+        margin-right: 10px;
+      }
+    }
+
+    &-qustion {
+      &:after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+
+      &-answer {
+        margin-bottom: 10px;
+        float: left;
+        a {
+          font-size: 13px;
+          padding-bottom: 2px;
+          margin-right: 35px;
+          color: #333;
+          &:hover {
+            border-bottom: 1px solid #c1c1c1;
+            text-decoration: none;
+          }
+
+          a:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+
+      &-review {
+        float: left;
+        p {
+          display: inline-block;
+          font-size: 13px;
+          margin-right: 5px;
+          color: #8d8d8d;
+        }
+
+        .like {
+          display: inline-block;
+          font-size: 13px;
+          font-weight: 700;
+          color: #57ae85;
+          margin-right: 8px;
+          span {
+            color: #333;
+            margin-right: 5px;
+          }
+        }
+
+        .dislike {
+          display: inline-block;
+          font-size: 13px;
+          font-weight: 700;
+          color: #fb2539;
+          span {
+            color: #333;
+            margin-right: 5px;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+
+    &-toolbar {
+      border: none;
+    }
+
+    &-form {
+      .action {
+        &.submit {
+          &.primary {
+            background: #fb2539;
+            color: #fff;
+            border: none;
+          }
+        }
+      }
+
+      .input-text,
+      textarea {
+        border-radius: 5px;
+        color: #c2c2c2;
+        &:focus {
+          box-shadow: none;
+        }
+      }
+
+      .review-fieldset {
+        margin-bottom: 20px;
+      }
+
+      textarea {
+        resize: none;
+      }
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .reviews {
+    &-buttons {
+      .btn {
+        &-reviews {
+          float: left;
+        }
+
+        &-add-reviews {
+          float: right;
+        }
+      }
+    }
+  }
+
+  .review {
+    &-items {
+      margin-bottom: 10px;
+    }
+
+    &-item {
+      padding: 30px;
+      &-wrap {
+        float: left;
+      }
+    }
+
+    &-qustion {
+      &-review {
+        p {
+          margin-right: 10px;
+        }
+
+        .like {
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+  .review {
+    &-item {
+      &-wrap {
+        width: 83.4%;
+      }
+    }
+
+    &-qustion {
+      &-review {
+        float: right;
+      }
+    }
+
+    &-ratings {
+      position: absolute;
+      right: 0;
+      padding-left: 30px;
+      top: 30px;
+      bottom: 30px;
+      border-left: 1px solid #e9eaeb;
+    }
+  }
+}

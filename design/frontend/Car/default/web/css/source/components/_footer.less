@@ -1,0 +1,250 @@
+& when (@media-common = true) {
+  .page {
+    &-footer {
+      background: #3c3f43;
+    }
+  }
+
+  .footer {
+    &-wrap {
+      padding: 20px;
+      background: #474a4e;
+    }
+
+    &-copyright {
+      display: none;
+      small {
+        width: 100%;
+        display: inline-block;
+        font-size: 14px;
+        color: #7f8183;
+      }
+
+      &-second {
+        padding: 20px;
+        small {
+          width: 49%;
+          display: inline-block;
+          font-size: 14px;
+          color: #7f8183;
+        }
+      }
+    }
+
+    &-dev {
+      width: 100%;
+      display: inline-block;
+      text-align: left;
+      color: #999;
+      a {
+        color: #dadbdc;
+      }
+    }
+
+    &-nav {
+      margin-bottom: 20px;
+      &-item {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 43px;
+        margin-bottom: 20px;
+        &:last-child {
+          margin-right: 0;
+        }
+
+        h4 {
+          margin: 0 0 15px 0;
+          color: #c8c9ca;
+          font-weight: 700;
+          font-size: 16px;
+        }
+
+        ul {
+          display: inline-block;
+          &.catalog {
+            margin-right: 40px;
+          }
+
+          li {
+            margin: 0 0 5px 0;
+            a {
+              color: #98999c;
+              font-size: 15px;
+            }
+          }
+        }
+      }
+    }
+
+    &-contacts {
+      text-align: center;
+      padding: 20px 20px 0;
+      &-phone {
+        display: inline-block;
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #d2d3d4;
+        font-weight: 700;
+        &:visited {
+          color: #d2d3d4;
+        }
+      }
+
+      &-subtitle {
+        font-size: 12px;
+        margin-bottom: 20px;
+        color: #77797c;
+      }
+
+      &-social {
+        border-bottom: 1px solid #595c5f;
+        p {
+          margin-bottom: 20px;
+          font-size: 14px;
+          color: #9e9fa1;
+        }
+
+        .social {
+          &-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            border: 1px solid;
+            line-height: 40px;
+            text-align: center;
+            display: inline-block;
+            margin-right: 4px;
+            margin-bottom: 20px;
+            &:hover {
+              text-decoration: none;
+            }
+
+            &:last-child{
+              margin-right: 0;
+            }
+
+            &.facebook {
+              border-color: #3e6eb1;
+              span {
+                color: #3e6eb1;
+              }
+            }
+
+            &.google {
+              border-color: #dc4e41;
+              span {
+                color:  #dc4e41;
+              }
+            }
+
+            &.twitter {
+              border-color: #00acec;
+              span {
+                color: #00acec;
+              }
+            }
+
+            &.youtube {
+              border-color: #e35358;
+              span {
+                color: #e35358;
+              }
+            }
+
+            &.vk {
+              border-color: #47c6a6;
+              span {
+                color: #47c6a6;
+              }
+            }
+
+            &.instagram {
+              border-color: #d92d74;
+              span {
+                color: #d92d74;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .footer {
+    &-dev {
+      width: 50%;
+      text-align: right;
+    }
+
+    &-wrap {
+      padding: 48px 54px 30px;
+      .copyright {
+        width: 49%;
+      }
+    }
+
+    &-contacts {
+      padding: 48px 20px 0;
+      &-social {
+        .social {
+          &-link {
+            margin-right: 20px;
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+  .page {
+    &-footer {
+      display: flex;
+    }
+  }
+
+  .footer-copyright {
+    display: block;
+    &-second {
+      display: none;
+    }
+  }
+
+  .footer {
+    &-wrap {
+      width: 76.3%;
+    }
+
+    &-nav {
+      border-bottom: 1px solid #595c5f;
+    }
+
+    &-contacts {
+      padding-left: 30px;
+      padding-right: 30px;
+      width: 23.6%;
+      &-social {
+        border-bottom: none;
+        margin: 0 auto;
+        .social {
+          width: 190px;
+          margin: 0 auto;
+          &-link {
+            &:nth-child(3n){
+              margin-right: 0;
+            }
+          }
+        }
+      }
+
+      &-subtitle {
+        margin-bottom: 50px;
+      }
+    }
+  }
+}

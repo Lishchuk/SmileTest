@@ -1,0 +1,56 @@
+& when (@media-common = true) {
+  .rating {
+    &-summary {
+      .rating-result {
+        margin: 0 30px 0 0;
+        &:before {
+          font-size: 20px;
+          line-height: 20px;
+          height: 20px;
+          letter-spacing: 1px;
+        }
+
+        > span:before {
+          color: #ffdc2c;
+          font-size: 20px;
+          line-height: 20px;
+          height: 20px;
+          letter-spacing: 1px;
+        }
+      }
+    }
+  }
+
+  .review {
+    &-control {
+      &-vote {
+        &:before {
+          font-size: 20px;
+          letter-spacing: 1px;
+        }
+
+        label {
+          &:before {
+            font-size: 20px;
+            letter-spacing: 1px;
+            color: #ffdc2c;
+          }
+        }
+      }
+    }
+
+    &-field {
+      &-ratings {
+        .review {
+          &-field {
+            &-rating {
+              .label {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

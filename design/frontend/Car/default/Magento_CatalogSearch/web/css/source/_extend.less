@@ -1,0 +1,58 @@
+& when (@media-common = true) {
+  .block-search {
+    margin-bottom: 20px;
+    input {
+      height: 46px;
+      color: #999;
+      font-size: 12px;
+      border-radius: 50px;
+      padding-right: 45px;
+      padding-left: 25px;
+      &::placeholder {
+        color: #999;
+      }
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .block-search {
+    float: right;
+    width: 67%;
+    padding: 33px 0;
+    margin-bottom: 0;
+    form {
+      position: relative;
+    }
+
+    .control {
+      padding: 0;
+    }
+
+    .nested {
+      display: none;
+    }
+
+    .action {
+      &.search {
+        right: 16px;
+        &:before {
+          font-size: 33px;
+          line-height: 33px;
+          color: #333;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1270px){
+    .block-search {
+      float: left;
+      width: 414px;
+      padding: 33px;
+    }
+  }
+}

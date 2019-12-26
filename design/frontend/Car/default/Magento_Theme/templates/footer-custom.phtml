@@ -1,0 +1,17 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+
+<div class="footer-nav">
+        <?php echo $this->getLayout() ->createBlock('Magento\Cms\Block\Block') ->setBlockId('footer-catalog') ->toHtml(); ?>
+
+        <?php echo $this->getLayout() ->createBlock('Magento\Cms\Block\Block') ->setBlockId('footer-company') ->toHtml(); ?>
+
+        <?php echo $this->getLayout() ->createBlock('Magento\Cms\Block\Block') ->setBlockId('footer-customer') ->toHtml(); ?>
+
+        <?php echo $this->getLayout() ->createBlock('Magento\Cms\Block\Block') ->setBlockId('footer-info') ->toHtml(); ?>
+
+</div>

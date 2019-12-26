@@ -1,0 +1,350 @@
+& when (@media-common = true) {
+  .nav {
+    &-sections{
+      background: #3c3f43;
+      &-item{
+        &-title {
+          width: 25%;
+          background: #3c3f43;
+          border-color: #4f4f4f;
+        }
+
+        &-switch {
+          color: #fff;
+        }
+
+        &-content {
+          .header {
+            &-nav {
+              li {
+                padding: 10px;
+                a {
+                  color: #fff;
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .header {
+        &.links {
+          li {
+            > a {
+              border-top: 0;
+              font-weight: 400;
+              color: #fff;
+            }
+          }
+        }
+      }
+
+      .switcher {
+        border: none;
+        color: #fff;
+        &:last-child {
+          border: none
+        }
+
+        &-trigger {
+          strong {
+            &:after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //.nav-sections .header.links li > a {
+  //  border-top: 0;
+  //  font-weight: 400;
+  //  color: #fff;
+  //}
+
+  //.nav-sections .switcher:last-child {
+  //  border: none
+  //}
+
+  //.nav-sections .switcher {
+  //  border: none;
+  //  color: #fff;
+  //}
+
+  //.nav-sections .switcher-trigger strong:after {
+  //  display: none;
+  //}
+
+  .navigation {
+    .level0 {
+      > .level {
+        &-top {
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    .submenu {
+      &:not(:first-child) {
+        > li {
+          > a {
+            color: #fff;
+            font-weight: 400;
+          }
+        }
+
+        ul {
+          > li {
+            > a {
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //.navigation .submenu:not(:first-child) > li > a {
+  //  color: #fff;
+  //  font-weight: 400;
+  //}
+
+  //.navigation .submenu:not(:first-child) ul > li a {
+  //  color: #fff;
+  //}
+
+  .navigation {
+    background: #3c3f43;
+    .level0 {
+      border: none;
+      > .level-top {
+        color: #fff;
+        text-transform: none;
+        font-weight: 400;
+
+      }
+    }
+
+    li {
+      &.level0 {
+        &:last-child {
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .panel {
+    &.header {
+      .switcher {
+        float: left;
+        margin-right: 85px;
+      }
+    }
+  }
+
+  .nav {
+    &-sections {
+      background: #3c3f43;
+      margin-bottom: 20px;
+    }
+  }
+
+  .navigation {
+    padding: 0 20px;
+    background: inherit;
+    ul {
+      padding: 0;
+    }
+
+    .level0 {
+      margin: 0;
+      padding: 0 10px;
+      text-align: center;
+      border-right: 1px solid #5a5e63;
+      > .level-top {
+        padding: 0;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 54px;
+        color: #fff;
+        text-transform: uppercase;
+        position: relative;
+        &:hover {
+          color: #fff;
+          &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            display: block;
+            border-bottom: 3px solid #fb2539;
+            width: 100%;
+          }
+        }
+        &.ui-state-focus {
+          color: #fff;
+        }
+      }
+
+      &.has {
+        &-active {
+          > .level-top {
+            color: #fff;
+            border: none;
+          }
+        }
+      }
+
+      &.submenu {
+        min-width: 233px;
+        padding: 0;
+        background: #3c3f43;
+        border: none;
+        text-align: left;
+        a {
+          color: #fff;
+          font-weight: 400;
+        }
+
+        .submenu {
+          background: #3c3f43;
+          border: none;
+        }
+      }
+
+
+      &:last-child {
+        padding: 0 10px;
+      }
+
+      &.first {
+        position: relative;
+        width: 234px;
+        padding: 0 20px;
+        background: #fb2539;
+        text-align: left;
+        border-right: 0;
+        &:after{
+          position: absolute;
+          top: 50%;
+          right: 20px;
+          transform: translateY(-50%);
+          font-size: 20px;
+          color: #fff;
+          font-weight: 400;
+          content: '\e903';
+          font-family: 'icomoon';
+        }
+      }
+
+      &.parent {
+        > .level-top {
+          padding: 0;
+          text-transform: none;
+        }
+      }
+
+      &:not(.first){
+        > .level-top {
+          &:before {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: -30px;
+            transform: translateY(-50%);
+            font-size: 20px;
+            font-family: 'icomoon';
+            color: #e9c513;
+          }
+        }
+      }
+
+      &.nav-2 {
+        > .level-top {
+          &:before {
+            content: '\e902';
+          }
+        }
+      }
+
+      &.nav-3 {
+        > .level-top {
+          &:before {
+            content: '\e907';
+          }
+        }
+      }
+
+      &.nav-4 {
+        > .level-top {
+          &:before {
+            content: '\e905';
+          }
+        }
+      }
+
+      &.nav-5 {
+        > .level-top {
+          &:before {
+            content: '\e904';
+          }
+        }
+      }
+
+      &.active {
+        > .level {
+          &-top {
+            border: none;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+  .navigation {
+    .level0 {
+      padding: 0 40px;
+      &:not(.first){
+        > .level-top {
+          &:before {
+            display: block;
+          }
+        }
+      }
+
+      &.level-top {
+        &:last-child {
+          padding: 0 40px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1340px) {
+    .navigation {
+      .level0 {
+        width: 264px;
+        padding: 0;
+        &:not(.first){
+          > .level-top {
+            &:before {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
